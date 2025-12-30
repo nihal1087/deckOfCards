@@ -20,8 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 95svh;
-  max-height: 95vh;
+  height: 100svh;
 }
 
 p {
@@ -32,11 +31,12 @@ p {
 }
 
 #remaining {
-  margin: -.5em -.75em ;
+  margin: -.5em -.85em ;
   padding: .25em;
   padding-right: .5em;
+  font-size:1.1rem;
   text-align: start;
-  font-weight: 400;
+  font-weight: 300;
   background-color: #3a3a3a42;
   border-radius: 3px;
   display: inline-block;
@@ -45,7 +45,7 @@ p {
 }
 
 #header {
-  margin: 1rem 0 ;
+  margin: 1.25rem 0 ;
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.1;
@@ -56,13 +56,13 @@ p {
 #computer-score {
   padding: .5em 0;
   color: #ffffff;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 #my-score {
   padding: .5em 0 .75em;
   color: #ffffff;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 #cards {
