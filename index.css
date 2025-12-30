@@ -11,7 +11,7 @@ body {
   height: 100svh;
   max-height: 100vh;
   background-repeat: no-repeat;
-  color: #f4ebc7;
+  color: #e8dba9;
   text-align: center;
 }
 
@@ -32,9 +32,16 @@ p {
 }
 
 #remaining {
+  margin: -.5em -.75em ;
+  padding: .25em;
+  padding-right: .5em;
   text-align: start;
   font-weight: 400;
-  padding-bottom: .7em;
+  background-color: #3a3a3a42;
+  border-radius: 3px;
+  display: inline-block;
+  width: fit-content;
+  align-self: start;
 }
 
 #header {
@@ -47,15 +54,25 @@ p {
 }
 
 #computer-score {
-  padding: .5em 0;
+  padding: .25em .75em;
   color: #ffffff;
   font-weight: 300;
+  background-color: #3a3a3a42;
+  border-radius: 3px;
+  display: inline-block;
+  width: fit-content;
+  align-self: center;
 }
 
 #my-score {
-  padding: .5em 0 .75em;
+  padding: .25em .75em;
   color: #ffffff;
   font-weight: 300;
+  background-color: #3a3a3a42;
+  border-radius: 3px;
+  display: inline-block;
+  width: fit-content;
+  align-self: center;
 }
 
 #cards {
@@ -79,7 +96,7 @@ p {
 button {
   font-family: inherit;
   font-weight: 600;
-  background-color: #f4ebc7;
+  background-color: #e8dba9;
   color: #02592b;
   cursor: pointer;
   font-size: 1rem;
@@ -134,14 +151,16 @@ button:disabled {
 
   #container {
     max-width: 750px;
-    max-height: 700px;
+    max-height: 600px;
     width: 100%;
     height: 85%;
+    background-color: #3a3a3a42;
     border: 5px solid #3433334d;
     border-radius: 16px;
   }
-
-
+  #remaining {
+  background-color: unset
+  }
 
   #header {
     font-size: 2.25rem;
@@ -150,17 +169,18 @@ button:disabled {
   #my-score {
     margin: 0;
     padding: 0;
-    margin: 1rem 0;
-    text-align:right;
-    margin-right: 7.75rem;
+    margin-bottom: .25rem;
+    text-align: right;
+    background-color: unset;
+    margin-right: -12.25rem;
   }
 
   #computer-score {
     margin: 0;
     padding: 0;
-    margin-bottom: 1rem;
     text-align: start;
-    margin-left: 7.85rem;
+    margin-left: -7.85rem;
+    background-color: unset;
   }
 
   .card-slot {

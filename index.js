@@ -1,60 +1,56 @@
-let deckId;
-let computerScore = 0;
-let myScore = 0;
-const cardsContainer = document.getElementById("cards");
-const newDeckBtn = document.getElementById("new-deck");
-const drawCardBtn = document.getElementById("draw-cards");
-const header = document.getElementById("header");
-const remainingText = document.getElementById("remaining");
-const computerScoreEl = document.getElementById("computer-score");
-const myScoreEl = document.getElementById("my-score");
+let deckId
+let computerScore = 0
+let myScore = 0
+const cardsContainer = document.getElementById("cards")
+const newDeckBtn = document.getElementById("new-deck")
+const drawCardBtn = document.getElementById("draw-cards")
+const header = document.getElementById("header")
+const remainingText = document.getElementById("remaining")
+const computerScoreEl = document.getElementById("computer-score")
+const myScoreEl = document.getElementById("my-score")
+
+newDeckBtn.addEventListener("click", handleClick)
 
 function handleClick() {
   fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
     .then((res) => res.json())
     .then((data) => {
-      deckId = data.deck_id;
-      remainingText.textContent = `Remaining cards: ${data.remaining}`;
-      cardsContainer.children[0].innerHTML = `
-                <img src="img/cb1.webp" class="card" />
-            `;
-      cardsContainer.children[1].innerHTML = `
-                <img src="img/cb2.webp" class="card" />
-            `;
-      header.textContent = "Game of War ⚔️!";
-      header.style.color = "#f4ebc7";
-      computerScoreEl.textContent = `Computer score: 0`;
-      myScoreEl.textContent = `My score: 0`;
-      computerScore = 0;
-      myScore = 0;
-      drawCardBtn.disabled = false;
-    });
+      deckId = data.deck_id
+      remainingText.textContent = `Remaining cards: ${data.remaining}`
+      cardsContainer.children[0].innerHTML = `<img src="img/cb1.webp" class="card" />`
+      cardsContainer.children[1].innerHTML = `<img src="img/cb2.webp" class="card" />`
+      header.textContent = "Game of War ⚔️!"
+      header.style.color = "#e8dba9"
+      computerScoreEl.textContent = `Computer score: 0`
+      myScoreEl.textContent = `My score: 0`
+      computerScore = 0
+      myScore = 0
+      drawCardBtn.disabled = false
+    })
 }
-
-newDeckBtn.addEventListener("click", handleClick);
 
 drawCardBtn.addEventListener("click", () => {
   fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
     .then((res) => res.json())
     .then((data) => {
-      remainingText.textContent = `Remaining cards: ${data.remaining}`;
+      remainingText.textContent = `Remaining cards: ${data.remaining}`
 
-      cardsContainer.children[0].querySelector("img").src = data.cards[0].image;
-      cardsContainer.children[1].querySelector("img").src = data.cards[1].image;
+      cardsContainer.children[0].querySelector("img").src = data.cards[0].image
+      cardsContainer.children[1].querySelector("img").src = data.cards[1].image
 
-      const winnerText = determineCardWinner(data.cards[0], data.cards[1]);
-      header.textContent = winnerText;
+      const winnerText = determineCardWinner(data.cards[0], data.cards[1])
+      header.textContent = winnerText
 
-      header.style.transform = "scale(1.025)";
-      setTimeout(() => header.style.transform = "scale(1)", 200);
+      header.style.transform = "scale(1.025)"
+      setTimeout(() => (header.style.transform = "scale(1)"), 200)
       if (data.remaining === 0) {
-        drawCardBtn.disabled = true;
+        drawCardBtn.disabled = true
         if (computerScore > myScore) {
-          header.textContent = "Computer won 😭!";
+          header.textContent = "Computer won 😭!"
         } else if (myScore > computerScore) {
-          header.textContent = "You won 😁!";
+          header.textContent = "You won 😁!"
         } else {
-          header.textContent = "It's a tie !";
+          header.textContent = "It's a tie !"
         }
       }
     });
@@ -76,18 +72,18 @@ function determineCardWinner(card1, card2) {
     "KING",
     "ACE",
   ];
-  const card1ValueIndex = valueOptions.indexOf(card1.value);
-  const card2ValueIndex = valueOptions.indexOf(card2.value);
+  const card1ValueIndex = valueOptions.indexOf(card1.value)
+  const card2ValueIndex = valueOptions.indexOf(card2.value)
 
   if (card1ValueIndex > card2ValueIndex) {
-    computerScore++;
-    computerScoreEl.textContent = `Computer score: ${computerScore}`;
-    return "Computer wins!";
+    computerScore++
+    computerScoreEl.textContent = `Computer score: ${computerScore}`
+    return "Computer wins!"
   } else if (card1ValueIndex < card2ValueIndex) {
     myScore++;
-    myScoreEl.textContent = `My score: ${myScore}`;
-    return "You win!";
+    myScoreEl.textContent = `My score: ${myScore}`
+    return "You win!"
   } else {
-    return "It's a tie!";
+    return "It's a tie!"
   }
 }

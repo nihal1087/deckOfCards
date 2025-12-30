@@ -1,8 +1,7 @@
-# Card Game 🎴
-
-A simple card game built with **HTML, CSS, and JavaScript**, where you can draw cards from a shuffled deck using the [Deck of Cards API](https://deckofcardsapi.com/).  
+# 🃏 Game of War – Card Game 
 The game keeps track of scores between the player and the computer.
-
+A fun and interactive card game built using HTML, CSS, and JavaScript, where the player competes against the computer by drawing cards from a shuffled deck.
+The game uses the [Deck of Cards API](https://deckofcardsapi.com/) to fetch real card data and automatically determines the winner of each round.
 ---
 
 ## 🔗 Live Demo
@@ -14,14 +13,14 @@ The game keeps track of scores between the player and the computer.
 - Shuffle and start a new deck
 - Draw two cards (player vs. computer)
 - Automatic comparison of card values
-- Score tracking
+- Live score tracking
 - Responsive design (mobile-first with media queries)
 - Smooth button interactions (hover, active, disabled states)
 
 ---
 
 ## 🖼️ Screenshots
-*(Add screenshots or GIFs of gameplay here)*  
+![Game Preview](img/preview1.png)
 
 ---
 
@@ -39,8 +38,18 @@ The game keeps track of scores between the player and the computer.
 ├── script.js # Game logic & API calls
 └── img/ # Assets (background, card placeholders, etc.)
 ---
+
+## 🧠 How the Game Works
+- Click New Deck to shuffle a fresh deck.
+- Click Draw to draw two cards.
+- Card values are compared automatically.
+- The winner of the round earns a point.
+- The game ends when all cards are drawn.
+
+---
 📜 License
 
 This project is free to use and open-source.
-Feel free to fork, modify, and play around 🚀
-Happy Coading!
+Feel free to fork, modify, and play around 
+⭐ If you like this project, consider giving it a star on GitHub!
+Happy Coding !
