@@ -33,10 +33,12 @@ The game uses the [Deck of Cards API](https://deckofcardsapi.com/) to fetch real
 ---
 
 ## 📂 Project Structure
+```
 ├── index.html # Main HTML file
 ├── style.css # Styling and layout
 ├── script.js # Game logic & API calls
 └── img/ # Assets (background, card placeholders, etc.)
+```
 ---
 
 ## 🧠 How the Game Works
